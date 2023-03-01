@@ -5,12 +5,11 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
 >
 
 <h:head>
-    <title>Home</title>
+    <title>Ingredients</title>
     <h:outputStylesheet library="css" name="style.css"/>
 </h:head>
 
@@ -25,26 +24,5 @@
 </ui:include>
 
 
-<h:dataTable value="#{recipeList.recipes}" var="recipe">
-    <h:column>
-        <f:facet name="header">Name</f:facet>
-        #{recipe.name}
-    </h:column>
-
-    <h:column>
-        <f:facet name="header">Description</f:facet>
-        #{recipe.description}
-    </h:column>
-
-    <h:column>
-        <f:facet name="header">Difficulty</f:facet>
-        #{recipe.difficulty}
-    </h:column>
-
-    <h:column>
-        <f:facet name="header">Category</f:facet>
-        #{recipe.category}
-    </h:column>
-</h:dataTable>
 </body>
 </html>

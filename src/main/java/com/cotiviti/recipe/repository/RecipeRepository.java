@@ -5,7 +5,7 @@ import com.cotiviti.recipe.db.QueryBuilder;
 import com.cotiviti.recipe.model.Recipe;
 
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ManagedBean(name = "recipeRepository", eager = true)
-@SessionScoped
+@RequestScoped
 public class RecipeRepository extends DBConnection {
 
     public List<Recipe> getAllRecipes() {
