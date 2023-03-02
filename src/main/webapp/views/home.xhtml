@@ -5,8 +5,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
 >
 
 <h:head>
@@ -16,35 +16,29 @@
 
 <body>
 
+
 <!--<ui:composition template="/WEB-INF/templates/header.xhtml">-->
 <!--</ui:composition>-->
 
 
 <ui:include src="/WEB-INF/templates/header.xhtml">
-    <ui:param name="siteTitle" value="RecipeFinder"/>
+    <ui:param name="siteTitle" value="SavorySpot"/>
 </ui:include>
 
-
-<h:dataTable value="#{recipeList.recipes}" var="recipe">
-    <h:column>
-        <f:facet name="header">Name</f:facet>
-        #{recipe.name}
-    </h:column>
-
-    <h:column>
-        <f:facet name="header">Description</f:facet>
-        #{recipe.description}
-    </h:column>
-
-    <h:column>
-        <f:facet name="header">Difficulty</f:facet>
-        #{recipe.difficulty}
-    </h:column>
-
-    <h:column>
-        <f:facet name="header">Category</f:facet>
-        #{recipe.category}
-    </h:column>
-</h:dataTable>
+<section class="recipe-section">
+    <p:dataView value="#{recipeList.recipes}" var="recipe" layout="grid">
+        <p:dataViewGridItem>
+            <h:panelGrid columns="1" style="width:100%">
+                <ui:include src="/WEB-INF/templates/recipe_card.xhtml">
+                    <ui:param name="imageUrl" value="#{recipe.imageUrl}"/>
+                    <ui:param name="name" value="#{recipe.name}"/>
+                    <ui:param name="description" value="#{recipe.description}"/>
+                    <ui:param name="category" value="#{recipe.category}"/>
+                    <ui:param name="prepTime" value="#{recipe.prepTime}"/>
+                </ui:include>
+            </h:panelGrid>
+        </p:dataViewGridItem>
+    </p:dataView>
+</section>
 </body>
 </html>

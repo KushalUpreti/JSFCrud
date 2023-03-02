@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Playfair+Display&display=swap');
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+header{
+    height:100px;
+}
+
+.recipes-section{
+    padding: 0 4em;
+}
+
+.recipes-section > .header-wrapper{
+    font-family: 'Inter', sans-serif;
+    padding-bottom: 1em;
+    font-size:1.3em;
+}
+
+.recipes-section > .recipe-list{
+    margin-top:1em;
+}
+
+img{
+    width : 120px;
+    height: 70px;
+    object-fit:cover;
+}
+
+.stylized-border{
+    width: 50px;
+    height 3px;
+    background-color:blue;
+}

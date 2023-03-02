@@ -22,4 +22,8 @@ public class RecipeService {
     public List<Recipe> getAllRecipes() {
         return repository.getAllRecipes();
     }
+
+    public Recipe addRecipe(Recipe recipe) {
+        return repository.addRecipe(recipe);
+    }
 }

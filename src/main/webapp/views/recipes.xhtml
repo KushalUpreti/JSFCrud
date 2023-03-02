@@ -5,20 +5,66 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
 >
 
 <h:head>
     <title>Recipes</title>
-    <h:outputStylesheet library="css" name="style.css"/>
+    <h:outputStylesheet library="css" name="recipes.css"/>
 </h:head>
 
 <body>
 
 <ui:include src="/WEB-INF/templates/header.xhtml">
-    <ui:param name="siteTitle" value="RecipeFinder"/>
+    <ui:param name="siteTitle" value="SavorySpot"/>
 </ui:include>
+
+<section class="recipes-section">
+    <div class="header-wrapper">
+        <p>Recipes</p>
+        <div class="stylized-border"></div>
+    </div>
+    <p:toolbar>
+        <p:toolbarGroup>
+            <h:form>
+                <p:commandButton styleClass="ui-button-primary" icon="pi pi-plus" value="Add" onclick="alert(‘Prime’)"/>
+            </h:form>
+        </p:toolbarGroup>
+    </p:toolbar>
+
+    <p:dataTable id="recipe-list" class="recipe-list" value="#{recipeController.recipes}" var="recipe">
+        <p:column headerText="Recipe">
+            <h:outputText value="#{recipe.name}"/>
+        </p:column>
+
+        <p:column headerText="Image">
+            <p:graphicImage value="#{recipe.imageUrl}" library="demo" styleClass="product-image" />
+        </p:column>
+
+        <p:column headerText="Category">
+            <h:outputText value="#{recipe.category}"/>
+        </p:column>
+
+        <p:column headerText="Difficulty">
+            <h:outputText value="#{recipe.difficulty}"/>
+        </p:column>
+
+        <p:column headerText="Prep Time">
+            <h:outputText value="#{recipe.prepTime}"/>
+        </p:column>
+
+        <p:column headerText="Actions">
+            <h:form>
+                <p:commandButton styleClass="ui-button-success" value="Edit" />
+                &nbsp;
+                <p:commandButton styleClass="ui-button-danger"  value="Delete"/>
+            </h:form>
+        </p:column>
+
+    </p:dataTable>
+
+</section>
 
 </body>
 </html>

@@ -5,12 +5,14 @@
 >
 
 <ui:composition>
+    <h:head>
+        <h:outputStylesheet library="css" name="header.css"/>
+    </h:head>
     <header>
         <nav>
             <h:link value="Recipes" outcome="/views/recipes"/>
             <h:link value="#{siteTitle}" outcome="/views/home" styleClass="title"/>
             <h:link value="Ingredients" outcome="/views/ingredients"/>
-
         </nav>
     </header>
 </ui:composition>
